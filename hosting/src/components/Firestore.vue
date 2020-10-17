@@ -1,6 +1,6 @@
 <template>
  <div>
-   <div>2{{User.depa}}{{User.num}}の正答数一覧</div>
+   <div>誰かさんの正答数一覧</div>
    <li 
      v-for="post in posts"
      :key="post.id"
