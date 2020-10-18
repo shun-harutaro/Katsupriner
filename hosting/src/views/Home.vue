@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <Firestore :User="user" />
+    <Firestore Id="i30" />
   </div>
 </template>
 
@@ -9,14 +9,6 @@
   export default {
     components: {
       Firestore
-    },
-    data(){
-      return{
-       user: {
-         depa: "",
-         num: ""
-       },
-      }
     }
   }
-</script>>
+</script>

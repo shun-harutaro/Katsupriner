@@ -30,8 +30,8 @@ export default {
   data: function() {
     return {
       loginForm:{
-				loginId:null,
-				url:null
+				loginId:"",
+				url:""
       },
       Validation:{
         loginReult: "",
