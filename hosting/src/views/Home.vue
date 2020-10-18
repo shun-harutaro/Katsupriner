@@ -9,17 +9,6 @@
   export default {
     components: {
       Firestore
-<<<<<<< HEAD
-    },
-    data(){
-      return{
-       user: {
-         depa: "i",
-         num: "30"
-       },
-      }
-=======
->>>>>>> login
     }
   }
 </script>

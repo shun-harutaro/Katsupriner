@@ -1,10 +1,6 @@
 <template>
  <div>
-<<<<<<< HEAD
-   <div>誰かさんの正答数一覧</div>
-=======
    <div>2{{ Id }}の正答数一覧</div>
->>>>>>> login
    <li 
      v-for="post in posts"
      :key="post.id"
