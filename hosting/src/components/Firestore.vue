@@ -1,6 +1,6 @@
 <template>
  <div>
-   <div>2{{ Id }}の正答数一覧</div>
+   <div>{{ name }}の正答数一覧</div>
    <li 
      v-for="post in posts"
      :key="post.id"
@@ -15,8 +15,10 @@
 <script>
 import { db } from '@/main'
 export default {
-  props:{
-    Id: String
+  computed:{
+    name(){
+      return this.$store.getters["name"];
+    }
   },
   data() {
     return {
@@ -25,7 +27,7 @@ export default {
   },
   firestore() {
     return {
-      posts: db.collection("2"+this.Id)
+      posts: db.collection(this.$store.getters["name"])
     }
   }
 }

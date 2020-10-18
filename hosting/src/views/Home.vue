@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <Firestore Id="i30" />
+    <Firestore />
   </div>
 </template>
 

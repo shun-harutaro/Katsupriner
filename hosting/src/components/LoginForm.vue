@@ -52,6 +52,7 @@ methods: {
       }
       if(LoginId == true){
         this.Validation.loginReult=""
+        this.$store.dispatch("login", this.loginForm.loginId);
         this.$router.push('/')
       } 
       event.preventDefault() 
