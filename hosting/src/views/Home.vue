@@ -13,8 +13,8 @@
     data(){
       return{
        user: {
-         depa: "i",
-         num: "38"
+         depa: "",
+         num: ""
        },
       }
     }

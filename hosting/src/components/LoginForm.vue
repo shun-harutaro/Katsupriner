@@ -1,63 +1,68 @@
 <template>
-    <div>
-        <p><b>{{title}}</b></p>
-        <form>
-            <span>ID : </span>
-            <input
-                type="text"
-                placeholder="input your id"
-                v-model="loginForm.loginId"
-            >
-                <p>
-                    Input loginId is {{ loginForm.loginId }}
-                </p>
-        </form>
-    </div>
+  <div>
+    <form
+    v-on:submit.prevent="onSubmit"
+    >
+      <span>ID : </span>          
+      <input
+        type="text"
+        placeholder="input your id"
+        v-model="loginForm.loginId"
+        >
+      <span>URL : </span>
+			<input
+				type="password"
+				placeholder="input URL of site"
+				v-model="loginForm.url"
+				>
+        <p class="error">
+          {{ Validation.loginReult }}
+        </p>
+        <button v-on:click="checkFrom">
+            Log In
+        </button>
+      </form>
+  </div>
 </template>
 
 <script>
-import LoginVue from '../views/Login.vue'
 export default {
-    props:{
-        title: String
-    },
-    data: function(){
-        return{
-            loginForm:{
-                loginId:null
-            },
-            Validation:{
-                loginResult: ''
-            }
-        }
-    },
-    methods: {
-        checkFrom: function(event) {
-            var LoginId = false
-            
-            if (!this.loginForm.loginId) {
-                this.Validation.loginResult="ログインIDを入力してください"
-            } else if(!this.checkString(this.loginForm.loginId)){
-                this.Validation.loginResult="半角英数で入力してください"
-            } else{
-                LoginId = true
-            }
-
-            if(LoginId == true){
-                this.Validation.loginResult=""
-                alert('Hello,' + this.loginForm.loginId + '!');
-            }
-            event.preventDefault()
-        },
-        checkString: function(inputdata){
-            var re = /^[A-Za-z0-9]*$/
-            return re.test(inputdata)
-        }
+  data: function() {
+    return {
+      loginForm:{
+				loginId:null,
+				url:null
+      },
+      Validation:{
+        loginReult: "",
+      }
     }
+  },
+methods: {
+    checkFrom: function(event){
+      var LoginId = false
+
+      if (!this.loginForm.url) {
+        this.Validation.loginReult="URLを入力してください"
+      } 
+      else if(!this.checkString(this.loginForm.url)){
+        this.Validation.loginReult="URLが正しくありません"
+      }else {
+        LoginId = true
+      }
+      if(LoginId == true){
+        this.Validation.loginReult=""
+        this.$router.push('/')
+      } 
+      event.preventDefault() 
+    },
+    checkString: function(inputdata){
+      return inputdata==process.env.VUE_APP_PROFESSORS_URL
+    }
+  }
 }
 </script>
 
-<style lang="stylus">
-.error
-    collor red
+<style scoped>
+.error { color: red; }
 </style>

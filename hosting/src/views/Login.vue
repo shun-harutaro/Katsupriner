@@ -1,22 +1,15 @@
 <template>
     <div class="login">
-        <button @click="login">Log In</button>
+        <LoginForm/>
     </div>
 </template>
 
 <script>
+import LoginForm from '@/components/LoginForm'
 export default {
     name: 'login',
-    data(){
-        return{
-            username: '',
-            password: ''
-        }
-    },
-    methods:{
-        login: function(){
-            this.$router.push('/')
-        }
+    components: {
+        LoginForm
     }
 }
 </script>

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.ddd35fa1fd34b5816a4c0b529a11e037.js"
+  "/precache-manifest.0c901418f3098d44c43c83934991aa01.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "katsupriner"});
