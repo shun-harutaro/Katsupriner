@@ -1,24 +1,36 @@
 <template>
   <div>
     <form
+    class="mb-4 px-4"
     v-on:submit.prevent="onSubmit"
     >
-      <span>ID : </span>          
-      <input
-        type="text"
-        placeholder="input your id"
-        v-model="loginForm.loginId"
-        >
-      <span>URL : </span>
-			<input
-				type="password"
-				placeholder="input URL of site"
-				v-model="loginForm.url"
-				>
-        <p class="error">
-          {{ Validation.loginReult }}
-        </p>
-        <button v-on:click="checkFrom">
+      <ul class="py-2 px-4">
+        <li class="p-2">
+          <span>ID : </span>          
+          <input
+            class="p-2 border"
+            type="text"
+            placeholder="input your id"
+            v-model="loginForm.loginId"
+            >
+        </li>
+        <li class="p-2">
+          <span>URL : </span>
+			    <input
+            class="p-2 border"
+			  	  type="password"
+			  	  placeholder="input URL of site"
+			  	  v-model="loginForm.url"
+			  	  >
+        </li>
+          <p class="error">
+            {{ Validation.loginReult }}
+          </p>
+        </ul>
+        <button 
+          v-on:click="checkFrom"
+          class="ml-2 p-2 rounded text-white bg-green-500"
+          >
             Log In
         </button>
       </form>
@@ -64,6 +76,6 @@ methods: {
 }
 </script>
 
-<style scoped>
+<style lang="stylus">
 .error { color: red; }
 </style>
