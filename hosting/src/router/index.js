@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 
+import store from '@/store/index.js'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,8 +30,23 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
+  linkActiveClass: "active",
   base: process.env.BASE_URL,
   routes
+})
+
+// router gards
+router.beforeEach((to, from, next) => {
+  // はログイン画面の場合
+  if (to.matched.some(page => {
+    // ログイン画面はリダイレクト対象外
+    return (page.path === '/login')
+  })) {
+    next()
+  } else {
+    // ログイン画面に飛ばす。ログイン後に元の画面に戻れるよう、backuriパラメーターにリダイレクト前のURLを入れる
+    next({path: '/login', query: {backuri: to.fullPath}})
+  }
 })
 
 export default router

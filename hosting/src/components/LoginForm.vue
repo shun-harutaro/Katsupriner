@@ -64,8 +64,8 @@ methods: {
       }
       if(LoginId == true){
         this.Validation.loginReult=""
-        this.$store.dispatch("login", this.loginForm.loginId);
-        this.$router.push('/')
+        this.$store.dispatch("setLoginInfo", this.loginForm.loginId);
+        this.$router.push({path: "backuri" in this.$route.query && this.$route.query.backuri.match(/^\//) ? this.$route.query.backuri : '/'})
       } 
       event.preventDefault() 
     },
