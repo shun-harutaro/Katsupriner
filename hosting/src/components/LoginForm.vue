@@ -6,11 +6,11 @@
     >
       <ul class="py-2 px-4">
         <li class="p-2">
-          <span>ID : </span>          
+          <span>ID  : </span>          
           <input
             class="p-2 border"
             type="text"
-            placeholder="input your id"
+            placeholder="2i○○ or 2m○○"
             v-model="loginForm.loginId"
             >
         </li>
@@ -70,7 +70,7 @@ methods: {
       event.preventDefault() 
     },
     checkString: function(inputdata){
-      return inputdata==process.env.VUE_APP_PROFESSORS_URL
+      return inputdata.indexOf(process.env.VUE_APP_PROFESSORS_URL) != -1
     }
   }
 }
