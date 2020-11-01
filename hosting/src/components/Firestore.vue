@@ -5,9 +5,10 @@
      v-for="post in posts"
      :key="post.id"
      class="list-none my-5"
-   >
+   ><a v-bind:href="`${ link }`">
      <h2 class="text-xl">{{ post.score }}</h2>
      <p class="text-sm">{{ post.date }}</p>
+    </a>
    </li>
  </div>
 </template>
@@ -18,6 +19,9 @@ export default {
   computed:{
     name(){
       return this.$store.getters["name"];
+    },
+    link(){
+      return process.env.VUE_APP_PROFESSORS_URL
     }
   },
   data() {
