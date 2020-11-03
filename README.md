@@ -1,4 +1,4 @@
-# Priner
+# Katsupriner
 ## about
 ### 個人別問題プリントの正解数の推移を見る
 ## Use Service
