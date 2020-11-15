@@ -1,47 +1,39 @@
 <script>
-import { Bar } from 'vue-chartjs';
-import { db } from '@/main'
+import { Line } from "vue-chartjs";
 
 export default {
-  extends: Bar,
+  extends: Line,
   name: 'chart',
-  data () {
-    return {
-      data: {
-        labels: ['2020/10/9', '2020/10/15', '2020/10/15', '2020/10/15', '2020/10/15', '2020/10/15'],
-        datasets: [
-          {
-            label: 'Line Dataset',
-            data: db.collection(this.$store.getters["name"]),
-            borderColor: '#CFD8DC',
-            fill: false,
-            type: 'line',
-            lineTension: 0,
-          }
-        ]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Month'
+  props: {
+    labels: Array,
+    datasets: Array,
+    options: {
+      type: Object,
+      default: () => {
+        return {
+          elements: {
+            line: {
+              fill: false,
+              borderCapStyle: "round",
+              borderJoinStyle: "round",
+              tension: 0
             }
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              stepSize: 10,
-              min: 0,
-              max: 150
-            }
-          }]
-        }
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          segmentStrokeColor: "transparent"
+        };
       }
     }
   },
-  mounted () {
-    this.renderChart(this.data, this.options)
+  mounted: function() {
+    this.renderChart(
+      {
+        labels: this.labels,
+        datasets: this.datasets
+      },
+      this.options
+    );
   }
-}
+};
 </script>
