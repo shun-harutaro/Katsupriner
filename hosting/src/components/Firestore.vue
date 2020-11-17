@@ -48,13 +48,23 @@ export default {
     }
   },
   firestore() {
-    const scoresRef = db.collection(this.$store.getters["name"]);
-    scoresRef.get().then(querySnapShot => {
-      const datas = querySnapShot.docs.map(doc => doc.score);
-    })
+    const scoresRef = db.collection(this.$store.getters["name"])
+    async function getData() {
+      return scoresRef.get()
+    }
+    async function getScores(){
+      const snapshot = await getData();
+      const scores = snapshot.docs.map(doc => doc.data().score);
+      console.log(scores)
+    }
+    async function getDates(){
+      const snapshot = await getData();
+      const dates = snapshot.docs.map(doc => doc.data().date);
+      console.log(scores)
+    }
+    
     return {
-      posts: scoresRef,
-      labels: datas
+      posts: scoresRef
     }
   }
 }
