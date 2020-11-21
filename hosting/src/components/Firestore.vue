@@ -1,6 +1,5 @@
 <template>
  <div>
-   <Chart :labels="labels" :datasets="datasets"/>
    <div>{{ name }}の正答数一覧</div>
    <li 
      v-for="post in posts"
@@ -16,12 +15,8 @@
 
 <script>
 import { db } from '@/main'
-import Chart from '@/components/Chart'
 
 export default {
-  components:{
-     Chart
-  },
   computed:{
     name(){
       return this.$store.getters["name"];
@@ -48,27 +43,8 @@ export default {
     }
   },
   firestore() {
-    let scores = null;
-    let dates = null;
-    const scoresRef = db.collection(this.$store.getters["name"]);
-    function getData(){
-      scoresRef.get().then(snapshot => {
-        snapshot.docs.forEach(doc => {
-          let item = doc.data();
-          let score = item.score;
-          let date = item.date;
-          if (score !== undefined && date !== undefined){
-            dataArr = {
-              score: score,
-              date: date
-            };
-            addData(myChart, dataArr.score,dataArr.date);
-          }
-        })
-      })
-    }
     return {
-      posts: scoresRef
+      posts: db.collection(this.$store.getters["name"])
     }
   }
 }
