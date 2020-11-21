@@ -1,11 +1,15 @@
+<template>
+  <div>
+    <canvas id="myChart" width="800px" height="600px"></canvas>
+  </div>
+</template>
+
 <script>
 import { Line } from "vue-chartjs";
 import { db } from '@/main';
-
 export default {
   name: 'chart',
   extends: Line,
-
   mounted() {
     const scoresRef = db.collection(this.$store.getters["name"]);
     function getData(){
@@ -18,13 +22,15 @@ export default {
         })
       })
     }
+
     let config = {
       type: "line",
       data: {
+        labels: [],
         datasets: [
           {
             label: "正答数",
-            data: score,
+            data: [],
             backgroundColor: "rgba(50,50,255,0.1)",
             borderColor: '#CFD8DC',
             fill: false,
@@ -62,9 +68,7 @@ export default {
       });
       chart.update();
     }
-
     getData();
   }
 };
-
 </script>
