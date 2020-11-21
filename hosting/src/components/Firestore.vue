@@ -48,21 +48,25 @@ export default {
     }
   },
   firestore() {
-    const scoresRef = db.collection(this.$store.getters["name"])
-    async function getData() {
-      return scoresRef.get()
+    let scores = null;
+    let dates = null;
+    const scoresRef = db.collection(this.$store.getters["name"]);
+    function getData(){
+      scoresRef.get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+          let item = doc.data();
+          let score = item.score;
+          let date = item.date;
+          if (score !== undefined && date !== undefined){
+            dataArr = {
+              score: score,
+              date: date
+            };
+            addData(myChart, dataArr.score,dataArr.date);
+          }
+        })
+      })
     }
-    async function getScores(){
-      const snapshot = await getData();
-      const scores = snapshot.docs.map(doc => doc.data().score);
-      console.log(scores)
-    }
-    async function getDates(){
-      const snapshot = await getData();
-      const dates = snapshot.docs.map(doc => doc.data().date);
-      console.log(scores)
-    }
-    
     return {
       posts: scoresRef
     }
