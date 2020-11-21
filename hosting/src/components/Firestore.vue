@@ -15,6 +15,7 @@
 
 <script>
 import { db } from '@/main'
+
 export default {
   computed:{
     name(){
@@ -29,7 +30,16 @@ export default {
   },
   data() {
     return {
-      posts: []
+      posts: [],
+      labels: [],
+      datasets: [
+        {
+          label: "Score",
+          data: [],
+          backgroundColor: "rgba(255, 99, 132, 0.8)",
+          borderColor: "red"
+        }
+      ]
     }
   },
   firestore() {

@@ -1,13 +1,13 @@
 <template>
   <div id="home">
-    <Chart/>
+    <Chart />
     <Firestore />
   </div>
 </template>
 
 <script>
-  import Chart from '@/components/Chart'
   import Firestore from '@/components/Firestore'
+  import Chart from '@/components/Chart'
   export default {
     components: {
       Chart,
