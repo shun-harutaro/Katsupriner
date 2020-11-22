@@ -12,6 +12,9 @@
      <p class="text-sm">{{ post.date }}</p>
     </a>
    </li>
+    <button v-if="name" class="bg-indigo-700 font-semibold text-white py-2 px-4 rounded">
+     <a :href="url">基礎解析Ⅱのページへ</a>
+    </button>
  </div>
 </template>
 
@@ -32,6 +35,7 @@ export default {
   },
   data() {
     return {
+      url: process.env.VUE_APP_PROFESSORS_URL,
       posts: [],
       labels: [],
       datasets: [
