@@ -42,7 +42,7 @@ export default {
         title: {
           display: true,
           text: "正答数の推移",
-          fontSize: 30
+          fontSize: 20
         },
         scales:{
           yAxes:[
