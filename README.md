@@ -18,4 +18,5 @@
 - Vue.js
     - tailwind.css
     - vuefire
-- firestoreからデータを取り出し、表示
+    - vue-chart(Chart.js)
+- firestoreからデータを取り出し、表示、グラフの描画
