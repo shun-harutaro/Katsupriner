@@ -6,7 +6,7 @@
      v-for="post in posts"
      :key="post.id"
      class="list-none my-5"
-   ><a v-bind:href="`${ link(post.id) }`">
+   ><a v-bind:href="`${ link(post.id) }`" target="_blank" rel="noopener noreferrer">
      <p class="text-sm">第{{ post.id }}回</p>
      <h2 class="text-xl">{{ post.score }}</h2>
      <p class="text-sm">{{ post.date }}</p>
