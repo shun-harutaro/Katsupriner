@@ -1,5 +1,6 @@
 <template>
  <div>
+   <h1>あ</h1>
     <h1 class="font-medium">{{ name }}の第{{ post.id }}回成績表</h1>
     <p class="text-sm">{{ post.date }}</p>
     <button v-if="name" class="bg-indigo-700 font-semibold text-white py-2 px-4 rounded">

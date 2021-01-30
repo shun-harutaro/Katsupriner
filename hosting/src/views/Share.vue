@@ -1,15 +1,5 @@
 <template>
     <div class="share">
-        <Score/>
+        <h1>あ</h1>
     </div>
 </template>
-
-<script>
-import Score from '@/components/Score'
-export default {
-    name: 'share',
-    components: {
-        Score
-    }
-}
-</script>
