@@ -27,7 +27,7 @@ const routes = [
   },
   {
     path: '/share',
-    name: 'share',
+    name: 'Share',
     component: Share
   }
 ]

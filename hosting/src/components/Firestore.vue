@@ -6,11 +6,11 @@
      v-for="post in posts"
      :key="post.id"
      class="list-none my-5"
-   ><a v-bind:href="`${ link(post.id) }`" target="_blank" rel="noopener noreferrer">
+   ><router-link to="/share">
      <p class="text-sm">第{{ post.id }}回</p>
      <h2 class="text-xl">{{ post.score }}</h2>
      <p class="text-sm">{{ post.date }}</p>
-    </a>
+    </router-link>
    </li>
     <button v-if="name" class="bg-indigo-700 font-semibold text-white py-2 px-4 rounded">
      <a :href="url">基礎解析Ⅱのページへ</a>

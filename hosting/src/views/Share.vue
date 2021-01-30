@@ -1,5 +1,16 @@
 <template>
     <div class="share">
-        <h1>あ</h1>
+        <p>ここに成績表が来ます</p>
+        <Score/>
     </div>
 </template>
+
+<script>
+import Score from '@/components/Score'
+export default {
+    name: 'share',
+    components: {
+        Score
+    }
+}
+</script>
