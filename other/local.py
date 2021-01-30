@@ -9,9 +9,13 @@ import os
 from google.cloud import firestore
 
 # get date
-year = 2020
-month = 11
-date = 30
+year = 0
+month = 0
+date = 0
+year=int(input("Year?"))
+month=int(input("Month?"))
+date=int(input("Date?"))
+
 print(f'{year}/{month}/{date}')
 
 # get root URL
