@@ -1,4 +1,5 @@
 # Katsupriner
+<img width="667" alt="Screenshot 2023-04-24 121348" src="https://user-images.githubusercontent.com/60352276/233892377-8d2feee8-7993-44d0-98fc-b1daca326520.png">
 ## about
 ### 個人別問題プリントの正解数の推移を見る
 ## Use Service
