@@ -1,5 +1,5 @@
 # Katsupriner
-[title_backyard](https://user-images.githubusercontent.com/60352276/233892377-8d2feee8-7993-44d0-98fc-b1daca326520.png)
+![title_backyard](https://user-images.githubusercontent.com/60352276/233892377-8d2feee8-7993-44d0-98fc-b1daca326520.png)
 
 ## about
 ### 個人別問題プリントの正解数の推移を見る
